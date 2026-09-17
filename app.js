@@ -157,6 +157,7 @@ function renderDetails() {
 function renderSchedule() {
   const { schedule } = CONTENT;
   setText('schedule-title', schedule.sectionTitle);
+  setText('schedule-subtitle', schedule.subtitle);
 
   const list = document.getElementById('schedule-list');
   if (!list) return;

@@ -22,6 +22,7 @@
   --color-border:      #ddd5c8;   /* bordo morbido */
 
   --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-script:  'Parisienne', 'Cormorant Garamond', cursive;
   --font-body:    'Jost', system-ui, sans-serif;
 
   --space-xs:  0.5rem;
@@ -92,6 +93,36 @@ h1, h2, h3, h4 {
   border-radius: 50%;
   margin: 0 auto 0.4rem;
 }
+
+/* Saturday programme subtitle — echoes the section title, one step down */
+.schedule-subtitle {
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  color: var(--color-ochre-dark);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  margin: calc(-1 * var(--space-md)) auto var(--space-lg);
+}
+
+/* Parisienne has no Hebrew coverage — fall back to the heading face in RTL */
+[dir="rtl"] .schedule-subtitle {
+  font-family: var(--font-heading), sans-serif;
+  font-style: italic;
+}
+
+.schedule-subtitle::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-ochre), transparent);
+  margin: 0.6rem auto 0;
+}
+
+.schedule-subtitle:empty { display: none; }
 
 .section-intro {
   text-align: center;
@@ -669,7 +700,7 @@ h1, h2, h3, h4 {
 }
 
 .venue-text h3 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-style: italic;
   color: var(--color-ochre-dark);
   margin-bottom: var(--space-sm);

@@ -65,7 +65,7 @@ const CONTENT = {
       {
         icon:  "💍",
         title: "Sabato 17 – Cerimonia, Cena & Festa",
-        lines: ["Gli eventi inizieranno approssimativamente dalle 16:00", "Castello di Rosciano, Umbria"],
+        lines: ["Gli eventi inizieranno dalle 16:30", "Castello di Rosciano, Umbria"],
       },
     ],
   },
@@ -73,10 +73,31 @@ const CONTENT = {
   /* ── Programma (Sabato) ─────────────────────────────────── */
   schedule: {
     sectionTitle: "Il Programma di Sabato",
+    subtitle:     "Il giorno del matrimonio",
     items: [
       {
-        time:  "",
-        label: "TBD – Il programma dettagliato sarà comunicato prossimamente",
+        time:  "16:30",
+        label: "Accoglienza degli ospiti con finger food",
+        note:  "",
+      },
+      {
+        time:  "17:30",
+        label: "Cerimonia",
+        note:  "",
+      },
+      {
+        time:  "18:00",
+        label: "Aperitivo",
+        note:  "",
+      },
+      {
+        time:  "20:00",
+        label: "Inizio cena",
+        note:  "",
+      },
+      {
+        time:  "22:00",
+        label: "Festa!",
         note:  "",
       },
     ],
