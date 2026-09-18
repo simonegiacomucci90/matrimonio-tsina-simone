@@ -146,9 +146,13 @@
     <div class="container">
       <h2 class="section-title" id="gifts-title"></h2>
       <p class="gifts-intro" id="gifts-intro"></p>
-      <div class="gifts-center">
-        <div class="gift-card reveal" id="gift-card"></div>
-      </div>
+      <details class="gifts-accordion">
+        <summary class="gifts-accordion-summary">
+          <span id="gifts-toggle-label"></span>
+          <span class="gifts-accordion-icon" aria-hidden="true">+</span>
+        </summary>
+        <div class="gifts-grid" id="gifts-grid"></div>
+      </details>
     </div>
   </section>
 

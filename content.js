@@ -145,13 +145,29 @@ const CONTENT = {
 
   /* ── Regalo ─────────────────────────────────────────────── */
   gifts: {
-    sectionTitle: "Un Piccolo Pensiero",
+    sectionTitle:  "Un Piccolo Pensiero",
+    detailsToggle: "Per maggiori dettagli",
     intro:        "La vostra presenza è il regalo più bello. Se desiderate farci un dono, saremmo felici di un contributo per l'inizio della nostra vita insieme ❤️",
-    option: {
-      icon:  "🏦",
-      title: "Bonifico bancario",
-      text:  "IBAN: IT94T0306921705100000014703\nIntestato a: Simone Giacomucci",
-    },
+    options: [
+      {
+        icon:  "🏦",
+        title: "Bonifico bancario",
+        details: [
+          { label: "Intestatario",    value: "Simone Giacomucci" },
+          { label: "Indirizzo",       value: "via Treviso 20a, Foligno (PG), Italy" },
+          { label: "IBAN",            value: "IT94T0306921705100000014703" },
+          { label: "SWIFT/BIC",       value: "BCITITMM" },
+          { label: "Banca",           value: "Intesa Sanpaolo SpA" },
+          { label: "Indirizzo banca", value: "Piazza San Carlo 156, Torino 10121, Italy" },
+        ],
+        text:  "",
+      },
+      {
+        icon:  "📱",
+        title: "Bit o Paybox",
+        text:  "Numero di telefono di Tsina: 0542021155",
+      },
+    ],
   },
 
   /* ── RSVP ───────────────────────────────────────────────── */

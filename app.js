@@ -233,15 +233,36 @@ function renderGifts() {
   const { gifts } = CONTENT;
   setText('gifts-title', gifts.sectionTitle);
   setText('gifts-intro', gifts.intro);
+  setText('gifts-toggle-label', gifts.detailsToggle);
 
-  const card = document.getElementById('gift-card');
-  if (!card) return;
+  const grid = document.getElementById('gifts-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
 
-  card.innerHTML = `
-    <span class="gift-icon" aria-hidden="true">${gifts.option.icon}</span>
-    <h3>${gifts.option.title}</h3>
-    <p>${gifts.option.text}</p>
-  `;
+  gifts.options.forEach(option => {
+    const card = document.createElement('div');
+    card.className = 'gift-card reveal';
+
+    const textHtml = option.text ? `<p>${option.text}</p>` : '';
+
+    const details = option.details || [];
+    const detailsHtml = details.length
+      ? `<dl class="gift-details">${details.map(row => `
+          <div class="gift-detail-row">
+            <dt>${row.label}</dt>
+            <dd>${row.value}</dd>
+          </div>`).join('')}</dl>`
+      : '';
+
+    card.innerHTML = `
+      <span class="gift-icon" aria-hidden="true">${option.icon}</span>
+      <h3>${option.title}</h3>
+      ${textHtml}
+      ${detailsHtml}
+    `;
+
+    grid.appendChild(card);
+  });
 }
 
 /* ── Lightbox ───────────────────────────────────────────────── */
