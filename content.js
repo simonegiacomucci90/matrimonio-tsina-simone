@@ -114,6 +114,19 @@ const CONTENT = {
     directionsUrl:   "https://maps.google.com/?q=Castello+di+Rosciano+Torgiano+Perugia",
     directionsLabel: "Indicazioni stradali",
     websiteLabel:    "Sito del castello",
+    plan: {
+      src:      "images/castle-map.jpg",
+      title:    "Mappa del Castello",
+      caption:  "Per orientarvi durante il weekend: la planimetria del castello con le camere, la cappella, la piscina e gli spazi della festa. Cliccate sulla mappa per ingrandirla.",
+      alt:      "Planimetria del Castello di Rosciano",
+      zoomHint: "Ingrandisci",
+      // Tour virtuali 3D Matterport degli interni del castello
+      toursLabel: "Esplorate il castello in 3D",
+      tours: [
+        { label: "Sala Lingarda e Suite", url: "https://my.matterport.com/show/?m=AfStDxfKhZj&play=1&utm_source=3" },
+        { label: "Salone Tancredi",       url: "https://my.matterport.com/show/?m=sSXZVHaE4aP&play=1&utm_source=3" },
+      ],
+    },
   },
 
   /* ── FAQ ────────────────────────────────────────────────── */

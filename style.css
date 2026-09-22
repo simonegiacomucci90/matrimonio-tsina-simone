@@ -518,6 +518,7 @@ h1, h2, h3, h4 {
   animation: fadeIn 0.25s ease;
 }
 .lightbox[hidden] { display: none; }
+.lightbox-prev[hidden], .lightbox-next[hidden] { display: none; }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -728,6 +729,97 @@ h1, h2, h3, h4 {
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   display: block;
 }
+
+/* Planimetria del castello */
+.venue-plan {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+.venue-plan-title {
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--color-ochre-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.venue-plan-caption {
+  color: var(--color-text-light);
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 0 auto var(--space-md);
+}
+
+.venue-plan-figure {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  cursor: zoom-in;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.venue-plan-figure:hover,
+.venue-plan-figure:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.16);
+  outline: none;
+}
+.venue-plan-figure:focus-visible { box-shadow: 0 0 0 3px var(--color-ochre), 0 14px 40px rgba(0,0,0,0.16); }
+
+.venue-plan-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.venue-plan-zoom {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(46, 39, 32, 0.75);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+.venue-plan-figure:hover .venue-plan-zoom,
+.venue-plan-figure:focus-visible .venue-plan-zoom { opacity: 1; }
+@media (hover: none) { .venue-plan-zoom { opacity: 1; } }
+
+/* Tour virtuali 3D sotto la planimetria */
+.venue-plan-tours-label {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--color-ochre-dark);
+}
+.venue-plan-tours-label:empty { display: none; }
+
+.venue-plan-tours {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.venue-plan-tour { display: inline-flex; align-items: center; gap: 0.5rem; }
+.venue-plan-tour-icon { font-size: 1rem; line-height: 1; }
 
 /* ════════════════════════════════════════════════════════════
    FAQ

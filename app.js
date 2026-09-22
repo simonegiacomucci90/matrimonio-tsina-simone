@@ -193,6 +193,31 @@ function renderVenue() {
 
   const iframe = document.getElementById('venue-map-iframe');
   if (iframe && !iframe.src) iframe.src = venue.mapsEmbedUrl;
+
+  // Planimetria del castello (si apre a schermo intero nella lightbox)
+  const plan = venue.plan;
+  const planBtn = document.getElementById('venue-plan-btn');
+  const planImg = document.getElementById('venue-plan-img');
+  if (plan && planBtn && planImg) {
+    setText('venue-plan-title',   plan.title);
+    setText('venue-plan-caption', plan.caption);
+    setText('venue-plan-zoom',    plan.zoomHint);
+    planImg.src = plan.src;
+    planImg.alt = plan.alt;
+    planBtn.setAttribute('aria-label', plan.zoomHint);
+    planBtn.onclick = () => openLightbox(0, [{ src: plan.src, alt: plan.alt }]);
+
+    // Tour virtuali 3D
+    setText('venue-plan-tours-label', plan.toursLabel);
+    const tours = document.getElementById('venue-plan-tours');
+    if (tours) {
+      tours.innerHTML = (plan.tours || []).map(tour => `
+        <a href="${tour.url}" class="btn btn-outline venue-plan-tour" target="_blank" rel="noopener">
+          <span class="venue-plan-tour-icon" aria-hidden="true">&#x1F3E0;</span>${tour.label}
+        </a>
+      `).join('');
+    }
+  }
 }
 
 /* ── FAQ ────────────────────────────────────────────────────── */
@@ -267,6 +292,8 @@ function renderGifts() {
 
 /* ── Lightbox ───────────────────────────────────────────────── */
 let lightboxIndex = 0;
+/** Set di immagini attualmente mostrato nella lightbox (galleria della storia di default, oppure un set ad hoc come la planimetria). */
+let activeLightboxImages = [];
 
 function initLightbox() {
   const lb    = document.getElementById('lightbox');
@@ -289,23 +316,35 @@ function initLightbox() {
 }
 
 function navigateLightbox(dir) {
-  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  if (activeLightboxImages.length < 2) return;
+  lightboxIndex = (lightboxIndex + dir + activeLightboxImages.length) % activeLightboxImages.length;
   setLightboxImage(lightboxIndex);
 }
 
 function setLightboxImage(index) {
   const img = document.getElementById('lightbox-img');
   const cap = document.getElementById('lightbox-caption');
-  const { src, alt } = lightboxImages[index];
+  const { src, alt } = activeLightboxImages[index];
   if (img) { img.src = src; img.alt = alt; }
   if (cap) cap.textContent = alt;
 }
 
-function openLightbox(index) {
+/**
+ * @param {number} index    Indice dell'immagine da mostrare.
+ * @param {Array}  [images] Set di immagini opzionale; di default la galleria della storia.
+ */
+function openLightbox(index, images) {
   const lb = document.getElementById('lightbox');
   if (!lb) return;
+  activeLightboxImages = images || lightboxImages;
   lightboxIndex = index;
   setLightboxImage(index);
+  // Nasconde le frecce quando c'è una sola immagine
+  const single = activeLightboxImages.length < 2;
+  const prev = document.getElementById('lightbox-prev');
+  const next = document.getElementById('lightbox-next');
+  if (prev) prev.hidden = single;
+  if (next) next.hidden = single;
   lb.hidden = false;
   document.body.style.overflow = 'hidden';
 }
