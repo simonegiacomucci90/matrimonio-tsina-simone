@@ -13,7 +13,7 @@ const CONTENT = {
     name2:     "Simone",
     ampersand: "&",
     tagline:   "Due cuori, una storia",
-    subtitle:  "si sposano",
+    subtitle:  "si sono sposati",
   },
 
   /* ── Data del matrimonio ────────────────────────────────── */
@@ -25,10 +25,11 @@ const CONTENT = {
 
   /* ── Hero ───────────────────────────────────────────────── */
   hero: {
-    backgroundImage:       "images/background.jpeg",
-    backgroundImageMobile: "images/background-mobile.jpeg",
+    backgroundImage:       "images/hero.jpg",
+    backgroundImageMobile: "images/hero.jpg",
     overlayOpacity:        0.38,
     venueLabel:            "Castello di Rosciano · Umbria, Italia",
+    thanks:                "Grazie per essere venuti!",
   },
 
   /* ── Nav ─────────────────────────────────────────────────── */
@@ -39,6 +40,7 @@ const CONTENT = {
     venue:    "Location",
     faq:      "FAQ",
     gifts:    "Regalo",
+    memories: "Foto",
     rsvp:     "RSVP",
   },
 
@@ -180,7 +182,30 @@ const CONTENT = {
         title: "Bit o Paybox",
         text:  "Numero di telefono di Tsina: 0542021155",
       },
+      {
+        icon:  "💳",
+        title: "PayPal",
+        text:  "simone.giacomucci@gmail.com",
+      },
     ],
+  },
+
+  /* ── Condividi foto e video ─────────────────────────────── */
+  memories: {
+    icon:         "📸",
+    sectionTitle: "Condividete i Vostri Ricordi",
+    intro:        "Ci piacerebbe tantissimo rivivere il nostro matrimonio anche attraverso i vostri occhi! Caricate tutte le foto e i video che avete — i momenti spontanei, i brindisi, le danze, proprio tutto — così potremo goderci ogni attimo emozionante. Grazie di cuore! 💛",
+    url:          "https://drive.google.com/drive/folders/1MY0_EkLR0uLq2banRHkkzHqhjm0txoGV",
+    label:        "📤 Carica foto e video",
+  },
+
+  /* ── Photo booth ────────────────────────────────────────── */
+  photobooth: {
+    icon:         "🎞️",
+    sectionTitle: "Photo Booth",
+    intro:        "Facce buffe, grandi sorrisi e qualche posa decisamente discutibile: ecco tutti gli scatti del photo booth, durante l'aperitivo e la festa! Cercatevi, scaricate i vostri preferiti e teneteli come piccolo ricordo della nostra giornata. 🎉",
+    url:          "https://drive.google.com/drive/folders/1gK85OKxWnAKCz3Z4XqF4KhC4zJ04xQcy?usp=share_link",
+    label:        "📷 Guarda le foto",
   },
 
   /* ── RSVP ───────────────────────────────────────────────── */

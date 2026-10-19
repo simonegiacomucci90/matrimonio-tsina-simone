@@ -48,47 +48,7 @@ function renderHero() {
   setText('hero-subtitle', couple.subtitle);
   setText('hero-date',     `${date.day} · ${date.display}`);
   setText('hero-venue',    hero.venueLabel);
-}
-
-/* ── Countdown ──────────────────────────────────────────────── */
-function buildCountdown() {
-  const target    = new Date(CONTENT.date.iso).getTime();
-  const container = document.getElementById('countdown');
-  if (!container) return;
-
-  const labels = ['Giorni', 'Ore', 'Minuti', 'Secondi'];
-
-  container.innerHTML = '';
-  const units = labels.map(label => {
-    const unit  = document.createElement('div');
-    unit.className = 'countdown-unit';
-    const num   = document.createElement('span');
-    num.className = 'countdown-number';
-    const lbl   = document.createElement('span');
-    lbl.className = 'countdown-label';
-    lbl.textContent = label;
-    unit.append(num, lbl);
-    container.appendChild(unit);
-    return num;
-  });
-
-  function tick() {
-    const diff = target - Date.now();
-    if (diff <= 0) {
-      container.innerHTML = `<span style="font-family:var(--font-heading);font-size:1.5rem;font-style:italic">🎉</span>`;
-      return;
-    }
-    const vals = [
-      Math.floor(diff / 86400000),
-      Math.floor((diff % 86400000) / 3600000),
-      Math.floor((diff % 3600000) / 60000),
-      Math.floor((diff % 60000) / 1000),
-    ];
-    vals.forEach((v, i) => { units[i].textContent = String(v).padStart(2, '0'); });
-  }
-
-  tick();
-  setInterval(tick, 1000);
+  setText('hero-thanks',   hero.thanks);
 }
 
 /* ── La Nostra Storia ───────────────────────────────────────── */
@@ -290,6 +250,17 @@ function renderGifts() {
   });
 }
 
+/* ── Sezioni con link (condividi foto/video, photo booth) ───── */
+function renderLinkSection(key) {
+  const section = CONTENT[key];
+  setText(`${key}-icon`,  section.icon);
+  setText(`${key}-title`, section.sectionTitle);
+  setText(`${key}-intro`, section.intro);
+
+  const btn = document.getElementById(`${key}-btn`);
+  if (btn) { btn.href = section.url; btn.textContent = section.label; }
+}
+
 /* ── Lightbox ───────────────────────────────────────────────── */
 let lightboxIndex = 0;
 /** Set di immagini attualmente mostrato nella lightbox (galleria della storia di default, oppure un set ad hoc come la planimetria). */
@@ -430,7 +401,6 @@ function initReveal() {
 /* ── Boot ───────────────────────────────────────────────────── */
 function boot() {
   buildHero();
-  buildCountdown();
   initNav();
 
   renderHero();
@@ -441,6 +411,8 @@ function boot() {
   renderVenue();
   renderFaq();
   renderGifts();
+  renderLinkSection('memories');
+  renderLinkSection('photobooth');
   renderRsvp();
   renderFooter();
 

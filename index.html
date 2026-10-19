@@ -26,12 +26,13 @@
       </button>
 
       <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#gifts"    data-nav="gifts"></a></li>
+        <li><a href="#memories" data-nav="memories"></a></li>
         <li><a href="#story"    data-nav="story"></a></li>
         <li><a href="#details"  data-nav="details"></a></li>
         <li><a href="#schedule" data-nav="schedule"></a></li>
         <li><a href="#venue"    data-nav="venue"></a></li>
         <li><a href="#rsvp"     data-nav="rsvp" class="nav-rsvp"></a></li>
-        <li><a href="#gifts"    data-nav="gifts"></a></li>
       </ul>
     </div>
   </nav>
@@ -49,8 +50,53 @@
       </div>
       <p class="hero-date"      id="hero-date"></p>
       <p class="hero-venue"     id="hero-venue"></p>
-      <div class="countdown"    id="countdown" aria-live="polite"></div>
-      <a href="#story" class="hero-cta" aria-label="Scopri di più">&#8595;</a>
+      <p class="hero-thanks"    id="hero-thanks"></p>
+      <a href="#gifts" class="hero-cta" aria-label="Scopri di più">&#8595;</a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       REGALO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="gifts" class="section section-gifts section-alt" aria-labelledby="gifts-title">
+    <div class="container">
+      <h2 class="section-title" id="gifts-title"></h2>
+      <p class="gifts-intro" id="gifts-intro"></p>
+      <details class="gifts-accordion" open>
+        <summary class="gifts-accordion-summary">
+          <span id="gifts-toggle-label"></span>
+          <span class="gifts-accordion-icon" aria-hidden="true">+</span>
+        </summary>
+        <div class="gifts-grid" id="gifts-grid"></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       CONDIVIDI FOTO E VIDEO
+  ══════════════════════════════════════════════════════════ -->
+  <section id="memories" class="section section-links" aria-labelledby="memories-title">
+    <div class="container">
+      <span class="links-icon" id="memories-icon" aria-hidden="true"></span>
+      <h2 class="section-title" id="memories-title"></h2>
+      <p class="section-intro"  id="memories-intro"></p>
+      <div class="links-cta">
+        <a id="memories-btn" class="btn btn-outline" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       PHOTO BOOTH
+  ══════════════════════════════════════════════════════════ -->
+  <section id="photobooth" class="section section-links section-alt" aria-labelledby="photobooth-title">
+    <div class="container">
+      <span class="links-icon" id="photobooth-icon" aria-hidden="true"></span>
+      <h2 class="section-title" id="photobooth-title"></h2>
+      <p class="section-intro"  id="photobooth-intro"></p>
+      <div class="links-cta">
+        <a id="photobooth-btn" class="btn btn-outline" target="_blank" rel="noopener"></a>
+      </div>
     </div>
   </section>
 
@@ -149,23 +195,6 @@
       <div class="rsvp-cta-buttons">
         <a id="calendar-btn" class="btn btn-calendar" target="_blank" rel="noopener"></a>
       </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       REGALO
-  ══════════════════════════════════════════════════════════ -->
-  <section id="gifts" class="section section-gifts section-alt" aria-labelledby="gifts-title">
-    <div class="container">
-      <h2 class="section-title" id="gifts-title"></h2>
-      <p class="gifts-intro" id="gifts-intro"></p>
-      <details class="gifts-accordion">
-        <summary class="gifts-accordion-summary">
-          <span id="gifts-toggle-label"></span>
-          <span class="gifts-accordion-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="gifts-grid" id="gifts-grid"></div>
-      </details>
     </div>
   </section>
 
